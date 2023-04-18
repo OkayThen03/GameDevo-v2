@@ -9,7 +9,7 @@ public class Main {
 		JFrame window = new JFrame();
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.setResizable(false);
-		window.setTitle("Sonic.EXE");
+		window.setTitle("Tax Evasion");
 		
 		GamePanel gamePanel = new GamePanel();
 		window.add(gamePanel);
