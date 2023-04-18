@@ -28,7 +28,7 @@ public class TileManager {
 		getTileImage();
 		loadMap(map);
 	}
-	
+
 	public void getTileImage() {
 		
 		//PLACEHOLDER TILES
@@ -72,20 +72,8 @@ public class TileManager {
 		//MISC TILES
 		setup(31, "031_Wall", true);
 		setup(32, "032_Earth", false);
-		
-		//TREE TILES
 		setup(33, "033_Tree", true);
-		setup(34, "034_Tree_BottomLeft", true);
-		setup(35, "035_Tree_BottomRight", true);
-		setup(36, "036_Tree_MidLeft", true);
-		setup(37, "037_Tree_MidRight", true);
-		setup(38, "038_Tree_TopLeft", true);
-		setup(39, "039_Tree_TopLeftTileable", true);
-		setup(40, "040_Tree_TopRight", true);
-		setup(41, "041_Tree_TopRightTileable", true);
-		
-		setup(42, "042_Pit", false);
-
+	
 	}
 	
 	public void setup(int index, String imageName, boolean collision) {
@@ -136,10 +124,9 @@ public class TileManager {
 		}
 	}
 	public void draw(Graphics2D g2) {
-
+		
 		int worldCol = 0;
 		int worldRow = 0;
-		
 		
 		while(worldCol < gp.maxWorldCol && worldRow < gp.maxWorldRow) {
 			
@@ -147,12 +134,8 @@ public class TileManager {
 			
 			int worldX = worldCol * gp.tileSize;
 			int worldY = worldRow * gp.tileSize;
-			
-			int padding = 8; // set padding size in pixels
-			
-			
-			int screenX = (worldX - gp.player.worldX + gp.player.screenX) - padding;
-		 	int screenY = (worldY - gp.player.worldY + gp.player.screenY) - padding;
+			int screenX = worldX - gp.player.worldX + gp.player.screenX;
+			int screenY = worldY - gp.player.worldY + gp.player.screenY;
 			
 			if(worldX + gp.tileSize > gp.player.worldX - gp.player.screenX && 
 			   worldX - gp.tileSize < gp.player.worldX + gp.player.screenX &&
@@ -160,10 +143,6 @@ public class TileManager {
 			   worldY - gp.tileSize < gp.player.worldY + gp.player.screenY) {
 				
 				g2.drawImage(tile[tileNum].image, screenX, screenY, null);
-	
-				
-				
-				
 			}
 			
 			worldCol++;
